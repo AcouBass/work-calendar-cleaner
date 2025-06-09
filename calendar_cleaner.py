@@ -1,4 +1,3 @@
-
 import requests
 from icalendar import Calendar, Event
 from collections import defaultdict
@@ -44,10 +43,9 @@ new_cal.add('version', '2.0')
 for shift_day, events in sorted(events_by_day.items()):
     starts = [e[0] for e in events]
     ends = [e[1] for e in events]
-    summaries = sorted(set(e[2] for e in events))
 
     merged_event = Event()
-    merged_event.add('summary', f"Work: {', '.join(summaries)}")
+    merged_event.add('summary', "Work")
     merged_event.add('dtstart', min(starts))
     merged_event.add('dtend', max(ends))
     new_cal.add_component(merged_event)

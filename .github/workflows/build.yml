@@ -2,6 +2,8 @@
 name: Build and Publish Calendar
 
 on:
+  schedule:
+    - cron: '0 5 * * *'  # Runs at 5:00 AM UTC every day
   workflow_dispatch:
 
 jobs:
